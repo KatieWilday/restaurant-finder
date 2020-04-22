@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+	import './App.css';
+	import { BrowserRouter as Router, Route } from 'react-router-dom'
+	import Home from './components/Home'
+	import Header from './components/Header'
+	// import Counter from './components/Counter'
+	import RestaurantsListContainer from './containers/RestaurantsListContainer'
+	import RestaurantsNameContainer from './containers/RestaurantsNameContainer'
+	import RestaurantsTypeContainer from './containers/RestaurantsTypeContainer'
+	import RestaurantsReviewContainer from './containers/RestaurantsReviewContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+	function App() {
+	  return (
+	    <Router>
+	      <div className="App">
+	        <Header />
+	        <Route exact path="/" component={Home} />
+	        <Route path="/restaurants" component={RestaurantsListContainer}/>
+	        <Route path="/random_restaurant" component={RestaurantsNameContainer}/>
+	        <Route path="/random_type" component={RestaurantsTypeContainer}/>
+	        <Route path="/review_form" component={RestaurantsReviewContainer}/>
+	      </div>
+	    </Router>
+
+
+	  );
+	}
+
+
+	export default App;
